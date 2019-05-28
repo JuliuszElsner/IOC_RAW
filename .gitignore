@@ -162,4 +162,8 @@ API
 Training
 Blog
 About
+
+
+#
+./.vs/*
 /.vs/ioc_tutorial/v15/Server/sqlite3/db.lock
