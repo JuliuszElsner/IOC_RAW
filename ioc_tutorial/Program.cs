@@ -1,4 +1,6 @@
-﻿using ioc_tutorial.Config;
+﻿using Autofac;
+using ioc_tutorial.Config;
+using ioc_tutorial.IOC;
 using ioc_tutorial.Logging;
 using ioc_tutorial.Server;
 using ioc_tutorial.Server.Redundancy;
@@ -8,8 +10,12 @@ namespace ioc_tutorial
 {
     class Program
     {
+        private static IContainer Container { get; set; }
+
         static void Main(string[] args)
         {
+            Container = ContainerProvider.GetContainer();
+
             var configuration = new ConfigurationReader().Read();
             var logWriter = new LogWriter(configuration.LogFilePath);
             var extendedLogWriter = new ExtendedLogWriter(configuration.LogFilePath);
