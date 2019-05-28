@@ -1,5 +1,7 @@
-﻿using DatabaseLib.UsersStorage;
+﻿using Autofac.Features.AttributeFilters;
+using DatabaseLib.UsersStorage;
 using ioc_tutorial.Logging;
+using ioc_tutorial.Logging.Writers;
 using System;
 
 namespace ioc_tutorial.Server
@@ -11,7 +13,7 @@ namespace ioc_tutorial.Server
         private readonly IUsers _usersSource;
         private readonly IUserPreferences _userPreferences;
         
-        public LogServer(ILogWriter logWriter, IUsers usersSource, IUserPreferences userPreferences)
+        public LogServer([KeyFilter(LoggingType.LogExtendedWithWeb)] ILogWriter logWriter, IUsers usersSource, IUserPreferences userPreferences)
         {
             _logWriter = logWriter;
             _usersSource = usersSource;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ioc_tutorial.Config;
+using System;
 using System.IO;
 
 namespace ioc_tutorial.Logging
@@ -7,9 +8,9 @@ namespace ioc_tutorial.Logging
     {
         private readonly string _logFilePath;
 
-        public ExtendedLogWriter(string logFilePath)
+        public ExtendedLogWriter(ILogFilePathProvider logFilePathProvider)
         {
-            _logFilePath = logFilePath;
+            _logFilePath = logFilePathProvider.GetLogFilePath();
         }
 
         public void WriteLine(string message)

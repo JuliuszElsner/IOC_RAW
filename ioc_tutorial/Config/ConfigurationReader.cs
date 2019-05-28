@@ -5,8 +5,6 @@ namespace ioc_tutorial.Config
 {
     public class ConfigurationReader : IConfigurationReader
     {
-        private readonly string _configFilePath;
-
         public IConfiguration Read()
         {
             return new Configuration
