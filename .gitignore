@@ -166,4 +166,7 @@ About
 
 #
 ./.vs/*
+/.vs/ioc_tutorial/v15/Server/sqlite3/storage.ide-wal
+/.vs/ioc_tutorial/v15/Server/sqlite3/storage.ide-shm
+/.vs/ioc_tutorial/v15/Server/sqlite3/storage.ide
 /.vs/ioc_tutorial/v15/Server/sqlite3/db.lock

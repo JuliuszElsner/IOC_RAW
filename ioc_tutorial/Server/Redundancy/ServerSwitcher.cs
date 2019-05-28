@@ -15,6 +15,9 @@
 
         public void ProcessingLoop()
         {
+            PrimaryServer?.StartOperating();
+            SecondaryServer?.StartOperating();
+            TertiaryServer?.StartOperating();
             // LOGIC
             // super server switching
             // super się przełączam miedzy serwerami hah ha ha hi hi
