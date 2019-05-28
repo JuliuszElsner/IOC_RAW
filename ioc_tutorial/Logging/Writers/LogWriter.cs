@@ -4,20 +4,20 @@ using System.IO;
 
 namespace ioc_tutorial.Logging
 {
-    public class LogWriter : LogWriterBase
+    public class LogWriter : ILogWriter
     {
-        public LogWriter(string logFilePath) : base(logFilePath)
+        private readonly string _logFilePath;
+
+        public LogWriter(string logFilePath)
         {
+            _logFilePath = logFilePath;
         }
 
-        public LogWriter(Configuration configuration) : base(configuration.LogFilePath)
+        public void WriteLine(string message)
         {
-        }
-
-        public override void WriteLine(string message)
-        {
-            Console.WriteLine("LogWriter::WriteLine executed");
-            using (var logFileWriter = new StreamWriter(_logFile))
+            Console.WriteLine($"LogWriter:: {message}");
+            
+            using (var logFileWriter = File.AppendText(_logFilePath))
             {
                 logFileWriter.Write($"{message}/r/n");
             }
